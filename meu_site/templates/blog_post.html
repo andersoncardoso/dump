@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% autoescape None %}
+
+{% block title %} Anderson's /home {% end %}
+
+{% block content %}
+    <div class="span14 blog-header">
+        <h3 class="blog-title">While(!(succeed == try(){}));</h3>
+        {% try %}
+            {% if context and context.user %}
+                <div id="post-create">
+                    <a href="/blog/post/create/" class="btn primary">Create New Post!</a>
+                </div>
+            {% end %}
+        {% except %}
+        {% end %}
+    </div>
+
+    
+    <div class="well span14" id="post_details" postID="{{ post.id }}">
+        {% if context and context.user %}
+            <span class="post-links">
+                <a class="btn primary" href="/blog/post/update/{{ post.id }}">Edit</a>
+            </span>
+        {% end %}
+        <div class="post-title">{{ post.title }}</div>
+        <p>
+            {{ markdown(post.content) }}
+        </p>
+        <div class="post-info">
+            <p>posted in {{ post.pub_date.strftime('%Y-%m-%d %H:%M') }}  &nbsp;&nbsp;-&nbsp;&nbsp; 
+            This post has {{ len(post.comments) }} comment(s) </p>
+        </div>
+    </div>
+
+    <div id="comment-form" class="well span14">
+        <form id="formComment" method="post" action="{{ form_action }}">
+            <fieldset>
+                <legend>Comment this post:</legend>
+                <em>
+                    {% for field in form %}
+                        {% if field.type != 'HiddenField' %}
+                        <div class="clearfix" id="clearfix_{{ field.name }}">
+                            <label>{{ unicode(field.label) }}</label>
+                            <div class="input">
+                                {{ field(class_='xxlarge') }}
+                            </div>
+                        </div>
+                        {%else %}
+                            {{ field }}
+                        {% end %}
+                    {% end %}
+                    {{ xsrf }}
+                    <input class="btn primary" id="btnFormComment" type="submit" value="send" />
+                </em>
+            </fieldset> 
+        </form>
+    </div>
+
+    <h4>Comments: </h4>
+    <div id="comment-section">
+        {% for comment in post.comments[::-1] %}
+            <div class="comment well span14">
+                <div class="comment-header">
+                    <span class="comment-header-name">{{ comment.name }}</span> &nbsp;said:
+                    {% if context and context.user %}
+                        <span class="comment-delete" commentID="{{ comment.id }}">delete</span>
+                    {% end %}
+                    <span class="comment-header-date">[ {{ comment.date.strftime('%Y-%m-%d %H:%M') }} ]</span>
+                </div>
+                <p class="comment-comment">
+                    {{ xhtml_escape(comment.content) }}
+                </p>
+            </div>
+        {% end %}
+    </div>
+
+{% end %}

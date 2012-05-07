@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main %}
+        <h1>Polls POC</h1>
+
+        <div id="divFormPoll">
+            {% include 'poll_add.html' %}
+        </div>
+        <br/>
+        {% for poll in polls %}
+        <div class="polls" >
+            <span class="question">{{ poll[0].question }}</span> &nbsp;-&nbsp;
+            <span class="time">{{ poll[0].pub_date.strftime('%d/%B/%Y') }}</span>
+            <ul>
+            {% for choice in poll[1] %}
+                <li class="choice"><span class="choice_votes">{{ choice.votes }}</span> <span class="choice_choice">{{ choice.choice }}</span></li>
+            {% end %}
+            </ul>
+        </div>
+        {% end %}
+{% end %}

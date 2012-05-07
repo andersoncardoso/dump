@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% autoescape None %}
+
+{% block title %} Anderson's /home {% end %}
+
+{% block content %}
+    <div class="span14 blog-header">
+        <h3 class="blog-title">While(!(succeed == try(){}));</h3>
+        {% try %}
+            {% if context and context.user %}
+                <div id="post-create">
+                    <a href="/blog/post/create/" class="btn primary">Create New Post!</a>
+                </div>
+            {% end %}
+        {% except %}
+        {% end %}
+    </div>
+
+    {% for post in posts %}
+        <div class="well span14" id="post_{{ post.id }}">
+            {% if context and context.user %}
+                <span class="post-links">
+                    <a class="btn primary" href="/blog/post/update/{{ post.id }}">Edit</a>
+                </span>
+            {% end %}
+            <div class="post-title">{{ post.title }}</div>
+            <p>
+                {{ markdown(post.content) }}
+            </p>
+            <div class="post-info">
+                <p>posted in {{ post.pub_date.strftime('%Y-%m-%d %H:%M') }}  - This post has {{ len(post.comments) }} comment(s)
+                <span class="post-comments-link" postID="{{ post.id }}">see/add comment(s)</span></p>
+            </div>
+        </div>
+    {% end %}
+    {% if posts %}
+        <div class="span4 pagination">
+            {% if has_previous %}
+            <a href="/blog/?page={{page-1}}" id="pagination-newer"><span>&lt;</span>newer</a>
+            {% end %}
+            {% if has_next %}
+            <a href="/blog/?page={{page+1}}" id="pagination-older">older<span>&gt;</span></a>
+            {% end %}
+        </div>
+    {% end %}
+
+{% end %}

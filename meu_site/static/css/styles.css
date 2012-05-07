@@ -1,0 +1,251 @@
+body{
+  font-family: Georgia, serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  background-color: rgba(0,0,0,0.04);
+}
+a{
+  color: #227CE8;
+}
+a:hover{
+  text-decoration: none;
+}
+p code, li code{
+  background-color: #F9F9F9;
+  border: 1px solid #eee;
+  font-size: 12px;
+  padding: 2px 3px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+hr{
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+  margin: 2em 1em;
+}
+.content{
+  margin-left: 150px;
+  width: 650px;
+  margin-bottom: 50px;
+}
+.related{
+  margin-top: 10px;
+}
+.related ul{
+  margin: 0;
+  padding: 0;
+}
+.related li{
+  font-size: 14px;
+  list-style: none;
+  padding: 5px 0px;
+  margin: 0;
+  color: #777;
+  border-bottom: 1px solid #eee;
+}
+.related li span{
+  float: right;
+}
+.related a{
+  text-decoration: none;
+}
+.related a:hover{
+  text-decoration: underline;
+}
+h1,h2,h3,h4{
+  color: #333;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-weight: 400;
+  border-bottom: 1px solid #ccc;
+}
+h1 a, h2 a, h3 a, h4 a{
+  color: #111;
+  text-decoration: none;
+}
+h1{
+  font-size: 36px;
+  margin-top: 18px;
+  margin-bottom: .15em;
+}
+h2{
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+h3{
+  color: #777;
+  font-size: 25px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+#header{
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  width: 80px;
+  font-family: Helvetica, sans-serif;
+}
+#header .avatar{
+  margin-left: 2px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 15px #ccc;
+  opacity: .8;
+}
+#header .avatar:hover{
+  opacity: 1;
+}
+#header a{
+  text-decoration: none;
+}
+#header #me{
+  text-transform: uppercase;
+  margin: 10px 0 20px 0;
+}
+#header #Anderson{
+  padding-left: 1px;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: #666;
+}
+#header #Anderson:hover {
+  color: #000;
+}
+#header #Cardoso{
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #000;
+}
+#header .site{
+}
+#header .site img{
+  padding: 0 3px;
+  border: 0;
+}
+#header #mousing{
+  font-size: 12px;
+  color: #999;
+  padding-left: 2px;
+  letter-spacing: 1px;
+}
+#header #sections{
+  margin: 25px 0 0 -15px;
+}
+#header #sections div{
+  margin-bottom: 7px;
+  #background-color: #000;
+  background-color: #333;
+  padding: 3px 15px;
+  text-align: right;
+}
+#header #sections a{
+  /*background-color: #000;
+  padding: 3px 5px;*/
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+}
+#header #sections a:hover{
+  color: #ccc;
+}
+
+
+#post{
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+#post ul{
+  font-size: 15px;
+  margin: 20px 20px 20px 0;
+}
+#post li{
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  color: #222;
+  list-style-type: square;
+}
+#post li code{
+  border: 1px solid #ccc;
+}
+#post p{
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  line-height: 1.7em;
+}
+#post img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 610px;
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 5px #555;
+}
+#post img.noclip{
+  max-width: 650px !important;
+  -webkit-box-shadow: none;
+}
+#post .aside{
+  background-color: #eee;
+  padding: 14px;
+  font-size: 14px;
+  margin: 5px 0 15px 0;
+  font-family: Helvetica, sans-serif;
+  line-height: 1.6em;
+}
+#post .aside strong{
+}
+#post .authoring{
+  margin-bottom: 17px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  padding-left: 0px;
+  font-size: 17px;
+  color: #777;
+}
+#post blockquote{
+  font-style: italic;
+  font-size: 14px;
+  padding: .25em 1em;
+  margin: 1em 1em 0 1em;
+  color: #444;
+}
+#post blockquote cite:before{
+  content: '— ';
+}
+#post blockquote cite{
+  display: block;
+  margin-top: .5em;
+  text-align: right;
+  color: #111;
+  font-style: normal;
+}
+.whoring{
+  margin: 30px 0;
+  padding: 10px 0;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+.whoring p{
+  margin-top: 0px;
+}
+.whoring img{
+  position: relative;
+  float: left;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-left: -60px;
+  border-radius: 4px;
+}
+.whoring .copy{
+  padding-left: 60px;
+}
+.whoring .twitter-follow-button{
+  width: 75px !important;
+}
+
+.post-form .helptext{
+    display: none;
+}

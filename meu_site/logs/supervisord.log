@@ -1,0 +1,7 @@
+2012-02-21 11:00:46,097 CRIT Can't drop privilege as nonroot user
+2012-02-21 11:00:46,198 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2012-02-21 11:05:33,953 CRIT Can't drop privilege as nonroot user
+2012-02-21 11:07:56,381 WARN received SIGTERM indicating exit request
+2012-02-21 11:08:10,990 CRIT Can't drop privilege as nonroot user
+2012-02-21 11:08:11,081 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2012-02-21 11:09:11,728 WARN received SIGTERM indicating exit request

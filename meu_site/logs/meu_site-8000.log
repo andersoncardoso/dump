@@ -1,0 +1,4 @@
+WARNING:root:Invalid cookie signature 'eyJmaXJzdF9uYW1lIjogIkFuZGVyc29uIiwgImVtYWlsIjogImFwaWVycmUuY2FyZG9zb0BnbWFpbC5jb20ifQ==|1329772713|5ae4614443b4c7304b764f07ee48848f1a0b5bc1'
+WARNING:root:Invalid cookie signature 'eyJmaXJzdF9uYW1lIjogIkFuZGVyc29uIiwgImVtYWlsIjogImFwaWVycmUuY2FyZG9zb0BnbWFpbC5jb20ifQ==|1329772713|5ae4614443b4c7304b764f07ee48848f1a0b5bc1'
+WARNING:root:404 GET /favicon.ico (127.0.0.1) 1.26ms
+WARNING:root:404 GET /favicon.ico (127.0.0.1) 1.03ms

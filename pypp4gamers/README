@@ -1,0 +1,30 @@
+This Project aims to be a different approach to teaching programming, using graphics and games.
+This is NOT a game maker. Only a easier way for benginners to work with graphical features.
+
+ 
+For testing the lib you can manipulate the path in the example itself or create a soft link: 
+in  Ubuntu/Debian
+
+	cd /usr/lib/python2.6/dist-packages
+	sudo ln -s /path-to-pypp4gamers/src/pypp4gamers pypp4gamers
+
+	considering that you have checked you git repository in your home folder it will be something like:
+	sudo ln -s ~/pypp4gamers/src/pypp4gamers/ pypp4gamers
+	
+in Mac OSX (snow leopard)
+	cd /Library/Python/2.6/site-packages
+	sudo ln -s /path-to-pypp4gamers/src/pypp4gamers pypp4gamers
+
+	considering that you have checked you git repository in your home folder it will be something like:
+	sudo ln -s ~/pypp4gamers/src/pypp4gamers/ pypp4gamers
+	
+
+
+try enter a python shell and import pypp4gamers
+everything should be working
+
+Fow windows you should Google and search the place where the modules stay, and how to create a link.
+Go to the folder with the modules, make a soft link to the src folder in the your development src folder.
+
+
+This software is licensed under the MIT License, see more info in LICENSE

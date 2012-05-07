@@ -1,0 +1,14 @@
+
+{% autoescape None %}
+
+<h2> Adicione uma nova Enquete: </h2>
+<form id="formPoll" method="post" action="/poll/add">
+    {{ xsrf }}
+    {% for field in form %}
+        <p class='formField'>
+            {{ unicode(field.label) }} {{field}}
+            {% if field.errors %} * {{ field.errors[0] }} {% end %}
+        </p>
+    {% end %}
+    <input type="submit" value="send" />
+</form>

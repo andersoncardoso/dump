@@ -1,0 +1,183 @@
+/*@font-face {*/
+    /*font-family: 'Yanone Kaffeesatz';*/
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
+    /*src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url('http://themes.googleusercontent.com/static/fonts/yanonekaffeesatz/v1/YDAoLskQQ5MOAgvHUQCcLQa6gm6bS00u2Qn-iPLo1Go.woff') format('woff');*/
+/*}*/
+
+/*========================= site ========================= */
+body{
+    padding-top: 110px;
+}
+input, textarea{
+    background-color: rgba(64,64,64,0.2);
+    border-color: rgba(116,116,116, 0.2);
+    box-shadow: 1px 1px 1px #111;
+}
+ul#main-menu li{
+   text-align: center;
+}
+#site-title{
+    color:  rgb(0, 105, 214);
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px rgb(0,0,0);
+}
+/*========================= Blog ========================= */
+/*.separator{
+    vertical-align: middle;
+    margin-left: 360px;;
+    margin-bottom: 30px;
+    color: #bbbbbb;
+}*/
+.blog-header{
+    margin: 20px 0px 40px 0px;
+}
+.blog-title{
+    display: inline-block;
+    width:100%;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    font-size: 32px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+}
+#post-create{
+    display: inline-block;
+    float: right;
+    margin-right: -40px;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+}
+#post-create:hover{
+    box-shadow: none;
+}
+.post-links a{
+    float: right;
+    padding: 1px 8px;
+    font-weight: bold;
+    margin-left: 20px;
+    /*box-shadow: 2px 2px 3px rgba(0,0,0,0.8);*/
+    /* transform/transition */
+}
+/*.post-links a:hover{
+    box-shadow: none;
+}*/
+.post-title{
+    font-size: 25px;
+    line-height: 42px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+}
+.post-info p:first-child{
+    font-size: 1.1em;
+    color : rgba(115,115,115, 0.75);
+    font-weight : bold;
+    box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0 inset;
+    border-top: 1px solid #121212;
+    margin-top: 5px;
+    padding-top: 20px;
+}
+.post-comments-link{
+    margin-left: 30px;
+    font-weight : bolder;
+    box-shadow: rgba(0, 0, 0, 1) 1px 1px 1px;
+    background: #404040;
+    background-color: rgba(48, 48, 48, 0.45);
+    border-style: solid;
+    border-width:  1px;
+    border-color: #181818;
+    /*color: #c6c6c6;*/
+    color : rgb(0,105,214);
+    padding: 10px;
+    border-radius: 5px 0 5px 0;
+    float: right;
+}
+.post-comments-link:hover{
+    box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+    background: #202020;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+}
+.pagination{
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+}
+.pagination span{
+    padding: 0 10px;
+    font-size: 1.1em;
+    font-weight: bolder;
+}
+#pagination-older{
+    border-right: none;
+}
+/*========================= POst Form ========================= */
+#btnFormPost{
+    float: right;
+    margin-right: 130px;
+}
+#formPost #content{
+    height: 300px;
+}
+#formPost fieldset{
+    margin-left: 130px;
+}
+/*========================= Post Details ====================== */
+.comment{
+    /*padding: 10px;*/
+    background-color: rgba(32,32,32, 0.75);
+    border-radius: 0 5px 0 5px;
+    margin: 10px 0 10px 0;
+}
+.comment-header{
+    margin-bottom: 10px;
+}
+.comment-header-name{
+    color:  rgb(0, 105, 214);
+    font-weight: bolder;
+    margin-right: 5px;
+}
+.comment-header-date{
+    float: right;
+    font-size: 1.1em;
+    color : rgba(115,115,115, 0.75);
+    font-weight : bold;
+    margin-right: 20px;
+}
+.comment-comment{
+    box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0 inset;
+    border-top: 1px solid #121212;
+    margin-top: 5px;
+    padding-top: 20px;
+}
+#formComment legend{
+    padding-bottom: 5px;
+    width: 82%;
+}
+#btnFormComment{
+    float:right;
+    margin-right: 130px;
+}
+.comment-delete{
+    float:right;
+    margin-right: 130px;
+    font-weight : bolder;
+    box-shadow: rgba(0, 0, 0, 1) 1px 1px 1px;
+    background: #404040;
+    background-color: rgba(248, 24, 24, 0.45); /*(214,105,0);*/
+    border-style: solid;
+    border-width:  1px;
+    border-color: #181818;
+    /*color: #c6c6c6;*/
+    color : rgb(255,255,255);
+    padding: 3px 10px;
+    border-radius: 5px;
+    float: right;
+}
+.comment-delete:hover{
+    box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 4px 0px inset;
+    background: #202020;
+    background-color: rgba(200, 10, 10, 0.45);
+    color: rgb(186,186,186);
+    border: none;
+}

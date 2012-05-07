@@ -1,0 +1,558 @@
+[
+        { "title": "Firefox 4",
+          "content": """I'm simply loving Firefox 4.
+
+It's the best browser I ever used.
+
+In the previous 3.6 version, I was unhappy and switched to Chrome, wich is very nice either. But with the release of the FF4, I quickly returned to FF.
+
+The apptabs and the panorama are those kind features that after you start using, you can't live without anymore.
+
+The only feature I like in Chrome and is missing on FF4, but it will be added in the FF5 to be release next month, is opening PDF files in the browser itself (on a tab).
+
+For those who are not using I really recommend downloading and giving a try. Watch some video on the site so you could see more about these new features. If you give a try, then probably gonna get hooked.
+
+[Firefox4 video](http://www.mozilla.com/en-US/firefox/video/?video=fx4-ui)
+
+thanks,
+
+att
+
+Anderson P Cardoso""",
+          "pub_date": "2011-05-06 19:25:00"
+        },
+
+        { "title": "Installing the desktop  Kindle application with wine on Ubuntu 10.10",
+          "content": """After trying a while with the repository version of wine, and getting frustated. I discovered that the kindle 1.3 solves the problem perfectly.
+
+here is how:
+
+This worked on a Ubuntu GNU/Linux 10.10 (maverick merkat)
+
+and wine 1.3
+
+first you need to add the wine repository to your apt-get list
+
+to do so:
+
+Software Center -&gt; edit -&gt; software sources -&gt; other software -&gt; add
+
+in the add box type:
+<pre>ppa:ubuntu-wine/ppa</pre>
+
+reload the sources list (probably the software center makes this by himself)
+
+now go to a terminal:
+<pre>
+sudo apt-get install wine1.3
+</pre>
+download the \"Kindle For PC\" application in the Amazon's site.
+
+double click in the .exe ...follow the instructions.
+
+and ta - daaaaaa ...it works (at least for me worked hehe)
+
+Using older versions of wine was quite problematic to make this run. Kudos for the wine team for fixing and making it run so smoothly.
+
+enjoy your cheap and super-cool kindle books.
+
+att
+
+Anderson Pierre Cardoso
+
+OBS: it synchronizes with your Amazon account perfectly. So you could download your purchased books, and synchronize your bookmarks and last pages normally""",
+          "pub_date": "2011-03-04 15:51:00"
+        },
+
+        { "title": "life at university",
+          "content": """<div class='separator' style='clear: both; text-align: center;'><a href='http://1.bp.blogspot.com/_e7VAr7fQRog/TQi2W4v2FkI/AAAAAAAAABU/KuQ_wAp4k1I/s1600/university_chart.001.jpg' imageanchor='1' style='margin-left: 1em; margin-right: 1em;'><img border='0' height='300' src='http://1.bp.blogspot.com/_e7VAr7fQRog/TQi2W4v2FkI/AAAAAAAAABU/KuQ_wAp4k1I/s400/university_chart.001.jpg' width='400' /></a></div><br /><br />well ..the image say it all""",
+          "pub_date": "2010-12-15 04:38:00"
+        },
+
+        { "title": "making git ignore your .pyc files",
+          "content": """When programming python in a project with git for version control you get annoyed all the time with the .pyc being showed as an untracked changed.
+
+to change that:
+
+open an terminal
+
+go to your project root folder
+
+type:
+<pre>
+echo '*.pyc' &gt; .gitignore
+</pre>
+
+you have created a .gitignore file, with the extensions that git should ignore
+
+now just commit that
+
+type:
+<pre>
+git add .gitignore
+git commit -m "adding .gitignore file"
+</pre>
+
+done! No more polluted git status in your project =]
+
+have a happy hacking!
+
+att
+
+Anderson Pierre Cardoso""",
+          "pub_date": "2011-03-03 15:44:00"
+        },
+
+        { "title": "trick for iterating over columns using map and the * operator",
+          "content": """Taking advantage of the last post, where I talk briefly about map. I will talk today about a simple trick for iteration over columns when you have a multidimensional array in python.
+
+lets say you have :
+<pre>
+&gt;&gt;&gt; l = [[1,2,3],[4,5,6],[7,8,9]]
+</pre>
+in common way, you iterate over its rows, like:
+<pre>
+&gt;&gt;&gt; for row in l:
+&gt;&gt;&gt;   print row
+</pre>
+But if you want to iterate over its columns, you could use:
+<pre>
+&gt;&gt;&gt; for col in map(lambda *c: c, *l):
+&gt;&gt;&gt;    print col
+</pre>
+this will give :
+<pre>
+(1,4,7)
+(2,5,8)
+(3,6,9)
+</pre>
+=], this works because the operator * unpack the list structure. pretty nice !
+
+att
+
+Anderson Pierre Cardoso""",
+          "pub_date": "2011-01-20 15:12:00"
+        },
+
+        { "title": "Using Dropbox as remote server for git repositories",
+          "content": """If you is experimenting on a project, dont want to put it publicly on github, and dont want to pay for a private repository. Here is a cheap solution =P.
+
+We will see how to use Dropbox as your remote server for git repositories. Since dropbox can update your repository folder quite fast, this a good solution. But if you are working with multiple developers, and two of them push at the same time Dropbox could get lost and damage your repository. So this is a good solution for yourself or very few collaborators.
+
+The solution:
+
+On your project folder:
+
+initialize git repository
+
+<pre>
+~/my_project_name/ $ git init
+</pre>
+add your code
+<pre>
+~/my_project_name/ $  git add code_you_want_to_sync_goes_here
+</pre>
+commit it
+<pre>
+~/my_project_name/ $ git commit -m 'my first commit message'
+</pre>
+change to you dropbox folder. There, create a folder to hold your git repositories, lets say my_git.
+<pre>
+~/Dropbox/my_git/ $ mkdir my_project_name.git
+~/Dropbox/my_git/ $ cd my_project_name.git
+</pre>
+create a bare repositorie
+<pre>
+~/Dropbox/my_git/my_project_name/ $ git init --bare
+</pre>
+Go back to your project folder and add this folder as the remote
+<pre>
+~/my_project_name/ $ git remote add origin ~/Dropbox/my_git/my_project_name.git
+~/my_project_name/ $ git push origin master
+</pre>
+For cloning on another machine just:
+
+(considering that you have dropbox on that machine and the repository folder is synced.)
+<pre>
+git clone ~/Dropbox/my_git/my_project_name.git
+</pre>
+An observation:
+
+If git pull or git push fails, use <pre>git pull origin master</pre> (or the same for push).
+
+That's it =]. Have fun
+
+""",
+          "pub_date": "2011-08-17 19:48:00"
+        },
+
+        { "title": "Python script for adding license to open your project source",
+          "content": """This week in my Internship, we wanted to add GPL license to free a project (as in freedom...Open the Source code).
+
+Since the project was in Java, it had plenty of files and folders. So I created this very simple script in Python to add the license notices for me.
+
+Maybe latter, I will make more generic so it can accept any kind of source extension and license notice. But Its very easy to change the script if you need.
+
+Use as you wish =]:
+
+<pre class=\"prettyprint\">
+#! /usr/bin/env python
+
+# -*- coding: utf-8
+
+import os
+
+import sys
+
+__author__ = 'Anderson Pierre Cardoso '
+
+file_extension = '.java'
+license_notice = '''
+/*******************************************************************************
+ * Copyright 2011 sua-empresa-vai-aqui
+ * Este arquivo é parte do programa seu-programa-vai-aqui
+ *
+ * Este programa é um software livre; você pode redistribui-lo e/ou
+ * modifica-lo dentro dos termos da Licença Pública Geral GNU como
+ * publicada pela Fundação do Software Livre (FSF); na versão 2 da Licença,
+ * ou (na sua opinião) qualquer versão posterior.
+ *
+ * Este programa é distribuido na esperança que possa ser  util, mas
+ * SEM NENHUMA GARANTIA; sem uma garantia implicita de ADEQUAÇÂO a qualquer
+ * MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a Licença Pública Geral GNU para
+ * maiores detalhes.
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU, sob o
+ * título "LICENCA.txt", junto com este programa, se não, escreva para a
+ * Fundação do Software Livre(FSF) Inc., 51 Franklin St, Fifth Floor,
+ * Boston, MA  02110-1301  USA
+ ******************************************************************************/
+
+'''
+
+def prepend_license(file_path):
+    \"\"\"
+    prepends the license notice into a file
+    \"\"\"
+    print 'adding license to file: %s'%file_path
+    with open(file_path, 'r+') as f:
+        old = f.read()
+        f.seek(0)
+        f.write(license_notice + old)
+
+def path_walker(raiz):
+    for root,dirs,files in os.walk(raiz):
+        [prepend_license(os.path.join(root,f)) for f in files if f.endswith(file_extension)]
+    print 'finished path walking =]'
+
+
+if __name__=='__main__':
+    if len(sys.argv) &lt; 2 or not os.path.isdir(sys.argv[1]):
+        print &gt;&gt; sys.stderr, '\nOps, pass a valid root folder (of your project) as argument'
+        exit()
+
+    raiz = os.path.join(os.getcwd(), sys.argv[1])
+    print 'root folder is %s'%(raiz)
+
+    path_walker(raiz)
+
+</pre>
+
+Have a happy project-Open-Sourcing =P    <br/>
+att <br/>
+<br/>
+Anderson P Cardoso  <br/>
+
+  """,
+          "pub_date": "2011-06-17 18:59:00"
+        },
+
+        { "title": "gnome3 on ubuntu 11.04",
+          "content": """I'm using, and loving, gnome 3 on Ubuntu natty.
+
+Not because I dont like Unity, because I really approve the work canonical is doing. But gnome 3 is just fantastic.
+
+For example the new mac osx lion has that new \"mission control\" feature that they are bragging about, but its just a copy of the control view of the gnome3 (hit super in your keyboard or drag the mouse to the upper left corner).
+
+And many more.
+
+So lets see how to install:
+
+In a Ubuntu 11.04 open a terminal window
+
+type:
+<pre>
+sudo apt-add-repository ppa:gnome3-team/gnome3
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get update
+sudo apt-get install gnome-shell
+</pre>
+if your interface is a little weird try remove the acessibility theme, it should get back to normal:
+<pre>
+sudo apt-get remove gnome-accessibility-themes
+sudo apt-get instal gnome-themes-standard
+</pre>
+to tweak the interface
+<pre>
+sudo apt-get install gnome-tweak-tool
+</pre>
+to use the tool in the terminal just type:
+<pre>
+gnome-tweak-tool
+</pre>
+Thats it, I hope you enjoy as much I'm doing
+
+Anderson Pierre Cardoso
+
+OBS: there is still a lot of bugs and uninplemented stuff, since the interface is brand new and they're remaking everything. So there is no much indicators, or options, and etc yet. Just be patience =]""",
+          "pub_date": "2011-06-10 17:24:00"
+        },
+
+        { "title": "aumentando a velocidade do Ubuntu GNU/Linux manipulando sua swappiness",
+          "content": """O Ubuntu (assim como outras distribuições do GNU/Linux) usam uma partição de swap, que \"extende\" a memória ram do seu pc, entre outras funcionalidades.
+
+O seu sistema tem uma propriedade chamada swappiness. Esse valor pode ser conferido usando:
+<pre>
+cat /proc/sys/vm/swappiness
+</pre>
+Esse valor varia de 0 a 100 e ele indica a tendência que o kernel tem de mover seus dados para o swap. Por padrão ele é setado como sendo 60.
+
+para 0 ele evitirá ao máximo usar o swap
+
+para 100 ele preferirá usa-lo
+
+Sendo assim para altos valores, você terá certa segurança maior no gerenciamente de memória, porém a velocidade do seu sistema é reduzida dessa forma.
+
+Uma primeira solução é \"desligar\" o swap:
+<pre>
+sudo swapoff -a
+</pre>
+digite o comando free e veja que sua swap agora é 0 MB
+
+essa solução é temporária e perde efeito ao reiniciar o computador.
+
+para restaurar sua swap basta digitar:
+<pre>
+sudo swapon -a
+</pre>
+Desligando o swap vc extrairá o máximo de velocidade já que todos os dados serão mandados diretamente para RAM. Porém se o seu sistema estiver requisitando memória demais e por algum motivo ele estourar o limite, ele congelará totalmente. Então vc deve fazer isso com sabedoria, se seu computador tem pouca RAM e vc requisita memória demais (virtualbox, gimp, blender, etc) talvez vc deva considerar a outra solução.
+
+Como meu sistema tem 4G e não costumo chegar no seu limite, eu uso essa solução.
+
+A outra maneira e diminuir o valor de swappiness do sistema, para tanto faça :
+<pre>
+sudo gedit /etc/sysctl.conf
+</pre>
+na linha com vm.swappiness mude seu valor. Se a linha não existir acrescente-a:
+<pre>
+vm.swappiness=0
+</pre>
+salve o arquivo e re-boote o computador.
+
+A performance do seu computador terá melhorado um pouco =].
+
+have a happy hacking
+
+abs
+
+Anderson Pierre Cardoso
+
+  """,
+          "pub_date": "2011-01-24 17:39:00"
+        },
+
+        { "title": "python earns most market share during 2010",
+          "content": """Turns out that despite the increase of objective-C (arrgh x__x) usage because of iPhone/iPad/iAnything development, Python is the language who earned most market share during 2010.
+
+Wonderful news for a Python enthusiast like me =].
+
+For the a complete look up of the TIOBE index -&gt; [http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html?page=results_2010](http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html?page=results_2010)
+
+Besides that, it's very sad to see that lot of proprietary/\"purely-comercial\" languages still figure on top positions.
+
+taking advantage of the post I will recommend this link, with a very nice article about the programmers market -&gt; [http://www.paulgraham.com/pypar.html](http://www.paulgraham.com/pypar.html)""",
+          "pub_date": "2011-01-09 07:28:00"
+        },
+
+        { "title": "ternary operator in Python",
+          "content": """For C++ and Java programmers, a very common operation is using the ternary operator for fast conditional expressions, generally something like:
+<pre class=\"prettyprint\">
+var = (conditional_expression) ? truth_value : false_value;
+</pre>
+where var will receive truth_value if conditional_expression returns True, or false_value if the expression is evaluated to False.
+
+But historically Python didn't had such feature (before 2.5 version to be more specific). For having this effect, they used a clever trick know as the and-or-trick:
+
+condition and truth_value or false_value
+
+try this in a python terminal:
+<pre class=\"prettyprint\">
+&gt;&gt;&gt; True and 'first' or 'second'
+&gt;&gt;&gt; 'first'
+&gt;&gt;&gt; False and 'first' or 'second'
+&gt;&gt;&gt; 'second'
+</pre>
+pretty neat right? But this have a inherently problem. Try:
+<pre class=\"prettyprint\">
+&gt;&gt;&gt; True and None or 'second'
+&gt;&gt;&gt; 'second'
+</pre>
+Instead evaluating to None (or any value that python values as False, like: "",  False, None,  [],  {}, 0) it will return 'second'.
+
+This is a problem hard to debug in a large application.
+
+We could make a simple function for that purpose, like:
+<pre class=\"prettyprint\">
+def ternary_operator(condition, truth_value, false_value):
+    if condition: return truth_value
+    return false_value
+</pre>
+
+But in the version 2.5 , after the PEP 308. Python gained its ternary operator:
+
+truth_value if condition else false_value
+
+The sintax is a little diferent from Java, c++ and others. But its really clean and easy to understand. try:
+<pre class=\"prettyprint\">
+&gt;&gt;&gt; 'first' if True else 'second'
+&gt;&gt;&gt; 'first'
+&gt;&gt;&gt; 'first' if False else 'second'
+&gt;&gt;&gt; 'second'
+</pre>
+Lets check that old problem with the and-or-trick:
+<pre class=\"prettyprint\">
+&gt;&gt;&gt; print(None if True else 'second')
+&gt;&gt;&gt; None
+</pre>
+=] ... So thats how we use ternary operation in Python after 2.5.
+
+thanks
+
+Anderson Pierre Cardoso""",
+          "pub_date": "2011-01-02 17:00:00"
+        },
+
+        { "title": "Otimizando o linux no Ubuntu sem recompilar o kernel",
+          "content": """Durante essa semana estourou a notícia de um patch para o kernel do linux que aumenta sua performance em cerca de 60 vezes, ao agrupar processos no escalonador [http://www.phoronix.com/scan.php?page=article&amp;item=linux_2637_video&amp;num=1](http://www.phoronix.com/scan.php?page=article&amp;item=linux_2637_video&amp;num=1).
+
+A solução possivelmente será integrada ao kernel em versões posteriores, mas para aquele mais afoitos, um desenvolvedor da RedHat criou uma solução que gera o mesmo efeito apenas reconfigurando três arquivos do seu pc, sem precisar recompilar o kernel.
+
+abaixo segue a solução (que também pode ser vista aqui -&gt; http://blog.coderepository.net/2010/11/19/otimizando-o-kernel-de-seu-desktop-linux/):
+
+num terminal:
+<pre>
+sudo gedit /etc/rc.local
+</pre>
+Adicione as seguintes linhas no arquivo antes da linha com \"exit 0\":
+<pre class='prettyprint'>
+mkdir -p /dev/cgroup/cpu
+mount -t cgroup cgroup /dev/cgroup/cpu -o cpu
+mkdir -m 0777 /dev/cgroup/cpu/user
+echo \"1\" &gt; /dev/cgroup/cpu/user/notify_on_release
+echo \"/usr/local/sbin/cgroup_clean\" &gt; /dev/cgroup/cpu/release_agent
+</pre>
+
+Salve, feche e dê permissão de execução para o rc.local :
+<pre>
+ sudo chmod +x /etc/rc.local
+</pre>
+
+<pre>
+sudo gedit /usr/local/sbin/cgroup_clean
+</pre>
+insira as linhas:
+<pre class=\"prettyprint\">
+\#!/bin/sh
+if [ \"$1\" != \"/user\" -a \"$1\" != \"/user/\" ]; then
+  rmdir /dev/cgroup/cpu$1
+fi
+</pre>
+
+salve, feche e de permissão de execução no arquivo:
+<pre>
+sudo chmod +x /usr/local/sbin/cgroup_clean
+</pre>
+
+<pre>
+sudo gedit /etc/bash.bashrc
+</pre>
+inserir no começo do arquivo:
+<pre class='prettyprint'>
+if [ \"$PS1\" ] ; then
+mkdir -m 0700 /dev/cgroup/cpu/user/$$
+echo $$ &gt; /dev/cgroup/cpu/user/$$/tasks
+fi
+</pre>
+reinicie e voi lá!!
+
+boa diversão =]
+
+Anderson Pierre Cardoso
+
+""",
+          "pub_date": "2010-11-21 16:31:00"
+        },
+
+        { "title": "resgatando dados da sua home criptografada",
+          "content": """Esse incidente se deu no sabádo. Foi uma mistura de uma home criptografada, um sistemas instável (estava usando a versão de testes no meu dia-a-dia...sim eu sei...dumb), eu fuçando aonde não devia no kernel e uma falta de backup(sim eu sei, mais dumb ainda). Ou seja uma sucessão de erros idiotas o que resultou num merecido problema.
+
+Meus sistema(ubuntu) pifou completamente e nem bootava mais, eu nem conseguia um shell no modo monousuario. Eu já estava para formatar tudo antes mesmo, então resolvi aproveitar o gancho. Mas precisava fazer backup dos meus dados, que estavam criptografados na minha home.
+
+A solução está logo abaixo:
+
+Eu recuperei meus dados a apartir de uma outra partição(ubuntu 10.04) que tinha no meu pc, mas tudo que tá aqui deve funcionar de um live-cd:
+> 1) Eu mandei montar o sistema bugado só clicando nele na aba places do ubuntu.
+>
+> 2) abra um terminal:
+>
+> 3) instale ecryptfs:
+<pre>
+sudo apt-get install ecryptfs-utils
+</pre>
+>
+> 4) recuperando sua Mount Passphrase:
+<pre>
+ecryptfs-unwrap-passphrase /media/<i>seus_sistema</i>/home/.ecryptfs/<i>username</i>/.ecryptfs/wrapped-passphrase
+</pre>
+> entre com sua senha de login.
+> Guarde a senha grandona que ele vai te retornar, vc vai precisar dela
+>
+> OBS: o inicio dos paths com /media/<i>seusistemaqui</i> é aonde tava montado o sisetma com a partição encriptada, entre o caminho que for no seu caso
+>
+> 5) va para /media/<i>seu sistema</i>
+>
+> 6)<pre> sudo&nbsp;ecryptfs-add-passphrase --fnek</pre>
+> quando ele pedir a passphrase use a senha que obtemos acima:
+>
+> 7) vc obterá algo assim:
+<pre>
+Inserted auth tok with sig [<i>um numero</i>] into the user session keyring
+Inserted auth tok with sig [<i>outro numero</i>] into the user session keyring
+</pre>
+> guarde esse segundo número.
+>
+>  8)montando:
+<pre>
+sudo mount -t ecryptfs /media/<i>seusistema</i>/home/.ecryptfs/username/.Private
+</pre>
+> (ou qquer outra pasta na qual vc queira montar)
+>
+> 9)
+<pre>
+selection: aes
+selection: 16 bits
+enable plaintext passthrough: n
+enable filename encryption: y
+filename encrypption key: use aquele segundo número que vc anotou
+</pre>
+> assumindo que deu tudo certo, vc encontrará seus dados na pasta que vc mandou montar.
+
+Divirta-se faça seu backup. Conserte a bobagem. E tente não fazer essa besteira denovo =P
+Lição-do-dia: faça backups sempre!!
+
+valeu e até a próxima
+
+OBS: essa solução funcionou comigo num ubuntu 10.04, em outras distros/versões pode divergir.""",
+          "pub_date": "2010-09-26 20:33:00"
+        },
+]
